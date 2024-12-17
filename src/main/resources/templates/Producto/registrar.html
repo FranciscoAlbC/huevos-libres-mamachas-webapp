@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Crear nuevo producto</title>
+</head>
+<body>
+    <h1>Crear nueva producto</h1>
+    <form th:action="@{/producto/registrar}" th:object="${productos}" method="POST">        
+        <label for="tipoHuevo">Tipo de huevo:</label>
+        <input type="text" id="tipoHuevo" th:field="*{tipoHuevo}" required />
+
+        <label for="medida">Medida:</label>
+        <input type="text" id="medida" th:field="*{medida}" required />
+        
+        <label for="fechaRecoleccion">Fecha de recolección:</label>
+        <input type="date" id="fechaRecoleccion" th:field="*{fechaRecoleccion}" required />
+        
+        <label>Estado:</label>
+        <label for="estado">Estado:</label>
+        <input type="checkbox" id="estado" th:field="*{estado}" />
+
+        <button type="submit">Guardar</button>
+    </form>
+    <a th:href="@{/producto/lista}">Volver</a>
+
+</body>
+</html>

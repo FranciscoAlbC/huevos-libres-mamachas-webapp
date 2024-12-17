@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Editar Promoción</title>
+</head>
+<body>
+    <h1>Editar Promoción</h1>
+    <form th:action="@{/promocion/editar/{id}(id=${promocion.codigo})}" th:object="${promocion}" method="post">
+        
+        <label for="codigo">Código:</label>
+        <input type="text" id="codigo" th:field="*{codigo}" readonly required />
+        
+        <label for="descripcion">Descripción:</label>
+        <input type="text" id="descripcion" th:field="*{descripcion}" required />
+        
+        <label for="fechaInicio">Fecha de Inicio:</label>
+        <input type="date" id="fechaInicio" th:field="*{fechaInicio}" required />
+        
+        <label for="fechaFin">Fecha de Fin:</label>
+        <input type="date" id="fechaFin" th:field="*{fechaFin}" required />
+        
+        <label for="descuento">Descuento:</label>
+        <input type="number" id="descuento" th:field="*{descuento}" step="1" min="0" max="100" required />
+        
+        <label>Estado:</label>
+        <select th:field="*{estado}">
+            <option value="Activa">Activa</option>
+            <option value="Inactiva">Inactiva</option>
+        </select>        
+        <button type="submit">Actualizar</button>
+    </form>
+    <a th:href="@{/promocion/lista}">Volver</a>
+</body>
+</html>

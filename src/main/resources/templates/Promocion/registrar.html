@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Crear Nueva Promoción</title>
+</head>
+<body>
+    <h1>Crear Nueva Promoción</h1>
+    <form th:action="@{/promocion/registrar}" th:object="${promociones}" method="POST">
+        <label for="descripcion">Descripción:</label>
+        <input type="text" id="descripcion" th:field="*{descripcion}" required />
+
+        <label for="fechaInicio">Fecha de Inicio:</label>
+        <input type="date" id="fechaInicio" th:field="*{fechaInicio}" required />
+
+        <label for="fechaFin">Fecha de Fin:</label>
+        <input type="date" id="fechaFin" th:field="*{fechaFin}" required />
+
+        <label for="descuento">Descuento:</label>
+        <input type="number" id="descuento" th:field="*{descuento}" step="0.01" min="0" max="100" required />
+
+        <label>Estado:</label>
+        <select th:field="*{estado}">
+            <option value="Activa">Activa</option>
+            <option value="Inactiva">Inactiva</option>
+        </select>        
+
+        <button type="submit">Guardar</button>
+    </form>
+    <a th:href="@{/producto/lista}">Volver</a>
+
+</body>
+</html>

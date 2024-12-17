@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Editar producto</title>
+</head>
+<body>
+    <h1>Editar producto</h1>
+    <form th:action="@{/producto/editar/{id}(id=${producto.codigo})}" th:object="${producto}" method="post">
+        <label for="codigo">Código:</label>
+        <input type="text" id="codigo" th:field="*{codigo}" readonly required />
+        <label for="tipoHuevo">Tipo de huevo:</label>
+        <input type="text" id="tipoHuevo" th:field="*{tipoHuevo}" required />
+
+        <label for="medida">Medida:</label>
+        <input type="text" id="medida" th:field="*{medida}" required />
+        <label for="fechaRecoleccion">Fecha de recolección:</label>
+        <input type="date" id="fechaRecoleccion" th:field="*{fechaRecoleccion}" required />
+        <label for="estado">Activo:</label>
+        <input type="checkbox" id="estado" th:field="*{estado}" />
+
+
+        <button type="submit">Actualizar</button>
+    </form>
+    <a th:href="@{/producto/lista}">Volver</a>
+</body>
+</html>
