@@ -37,7 +37,7 @@ public class VentaEntity implements Serializable{
     @Column(name = "montototalconigv")
     private float montoTotalConIGV;
 
-   /*  @OneToOne
+    @OneToOne
     @JoinColumn(name="idpedido")
     private PedidoEntity pedido;
     
@@ -47,7 +47,7 @@ public class VentaEntity implements Serializable{
 
     @OneToOne
     @JoinColumn(name="idpago")
-    private PagoEntity pago; */
+    private PagoEntity pago; 
 
     @ManyToOne
     @JoinColumn(name="idpromocion")
