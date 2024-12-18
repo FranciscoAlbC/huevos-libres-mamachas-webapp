@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="cboOC" class="form-label">Orden de Compra:</label>
-                    <select id="cboOC" name="cboOC" class="form-select" required th:field="*{ordenCompra}">
+                    <select id="cboOC" name="cboOC" class="form-select" required th:field="*{ordenCompra.codigo}">
                         <option value="0">Seleccione una Orden de Compra</option>
                         <option
                                 th:each="oc : ${ordencompras}"

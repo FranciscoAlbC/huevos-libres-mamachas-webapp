@@ -41,7 +41,7 @@
                 </div>
                 <div class="col-5">
                     <label for="txtcoti" class="form-label">Cotizacion:</label>
-                    <input type="text" class="form-control" id="txtcoti" name="txtcoti" required th:field="*{cotizacion}" th:value="${ordencompra.cotizacion}">
+                    <input type="text" class="form-control" id="txtcoti" name="txtcoti" th:field="*{cotizacion}" th:value="${ordencompra.cotizacion}">
                 </div>
                 <div class="col-5">
                     <label for="dptfecp" class="form-label">Fecha Pago:</label>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="col-5">
                     <label for="txtvoucher" class="form-label">Voucher Pago:</label>
-                    <input type="text" class="form-control" id="txtvoucher" name="txtvoucher" required th:field="*{voucherPago}" th:value="${ordencompra.voucherPago}">
+                    <input type="text" class="form-control" id="txtvoucher" name="txtvoucher" th:field="*{voucherPago}" th:value="${ordencompra.voucherPago}">
                 </div>
                 <button type="submit" class="btn btn-success">Actualizar</button>
             </form>

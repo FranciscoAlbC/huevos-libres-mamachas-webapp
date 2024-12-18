@@ -1,6 +1,7 @@
 package pe.com.mamachas.service.impl;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.com.mamachas.dto.InsumoDTO;
@@ -45,11 +46,16 @@ public class InsumoServiceImpl implements InsumoService {
     }
 
     @Override
-    public InsumoDTO update(InsumoDTO i, Long id) {
-        InsumoEntity insumo = repositorio.findById(id).get();
-        mapper.map(i, insumo);
-        return mapper.map(repositorio.save(insumo), InsumoDTO.class);
+    public InsumoEntity update(InsumoEntity i) {
+        InsumoEntity objInsumo = repositorio.getById(i.getCodigo());
+        BeanUtils.copyProperties(i, objInsumo);
+        return repositorio.save(objInsumo);
     }
+//    public InsumoDTO update(InsumoDTO i, Long id) {
+//        InsumoEntity insumo = repositorio.findById(id).get();
+//        mapper.map(i, insumo);
+//        return mapper.map(repositorio.save(insumo), InsumoDTO.class);
+//    }
 
     @Override
     public InsumoDTO delete(Long id) {

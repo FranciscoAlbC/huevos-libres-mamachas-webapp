@@ -7,10 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import pe.com.mamachas.dto.DetalleOrdenCompraDTO;
 import pe.com.mamachas.dto.PedidoProductoDTO;
 import pe.com.mamachas.dto.PedidoProductoIdDTO;
-import pe.com.mamachas.entity.PedidoProductoId;
 import pe.com.mamachas.service.PedidoProductoService;
 
 @Controller

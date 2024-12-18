@@ -1,6 +1,8 @@
 package pe.com.mamachas.service;
 
 import pe.com.mamachas.dto.InsumoDTO;
+import pe.com.mamachas.entity.InsumoEntity;
+
 import java.util.List;
 
 public interface InsumoService {
@@ -9,7 +11,9 @@ public interface InsumoService {
     List<InsumoDTO> findAllCustom();
     InsumoDTO findById(Long id);
     InsumoDTO add(InsumoDTO i);
-    InsumoDTO update(InsumoDTO i, Long id);
+
+    InsumoEntity update(InsumoEntity i);
+    //InsumoDTO update(InsumoDTO i, Long id);
     InsumoDTO delete(Long id);
     InsumoDTO enable(Long id);
 }

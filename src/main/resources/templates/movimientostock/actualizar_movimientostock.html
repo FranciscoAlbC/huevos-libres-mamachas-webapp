@@ -15,7 +15,7 @@
         </div>
         <div class="card-body">
             <!-- inicio formulario -->
-            <form th:action="@{/movimientostock/actualizar/{id}(id=${movimientostock.codigo})}" method="post" th:object="${movimientostocks}">
+            <form th:action="@{/movimientostock/actualizar/{id}(id=${movimientostocks.codigo})}" method="post" th:object="${movimientostocks}">
                 <div class="col-5">
                     <label for="txtCod" class="form-label">Codigo:</label>
                     <input type="text" class="form-control" id="txtCod" name="txtCod" readonly th:field="*{codigo}" th:value="${movimientostock.codigo}">
@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-5">
                     <label for="txtTip" class="form-label">Tipo:</label>
-                    <input type="text" class="form-control" id="txtTip" name="txtTip" required th:field="*{tipo}" th:value="${movimientostock.tipo}">
+                    <input type="text" class="form-control" id="txtTip" name="txtTip"  th:field="*{tipo}" th:value="${movimientostock.tipo}">
                 </div>
                 <div class="col-5">
                     <label for="txtCant" class="form-label">Cantidad:</label>

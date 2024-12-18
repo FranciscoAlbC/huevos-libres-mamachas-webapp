@@ -15,14 +15,18 @@
         </div>
         <div class="card-body">
             <!-- inicio formulario -->
-            <form th:action="@{/insumo/actualizar/{id}(id=${insumo.codigo})}" method="post" th:object="${insumos}">
+            <form th:action="@{/insumo/actualizar/{id}(id=${insumos.codigo})}" method="post" th:object="${insumos}">
                 <div class="col-5">
                     <label for="txtCod" class="form-label">Codigo:</label>
                     <input type="text" class="form-control" id="txtCod" name="txtCod" readonly th:field="*{codigo}" th:value="${insumo.codigo}">
                 </div>
+                <div class="col-5">
+                    <label for="txtnom" class="form-label">Nombre:</label>
+                    <input type="text" class="form-control" id="txtnom" name="txtNom" required th:field="*{nombre}" th:value="${insumo.nombre}">
+                </div>
                 <div class="col-md-4">
                     <label for="cboTipI" class="form-label">Tipo de Insumo:</label>
-                    <select id="cboTipI" name="cboTipI" class="form-select" required th:field="*{tipoInsumo}">
+                    <select id="cboTipI" name="cboTipI" class="form-select" required th:field="*{tipoInsumo.codigo}">
                         <option value="0">Seleccione un Tipo de Insumo</option>
                         <option
                                 th:each="ti : ${tipoinsumos}"
@@ -33,7 +37,7 @@
                 </div>
                 <div class="col-5">
                     <label for="txtStkM" class="form-label">Stock Minimo:</label>
-                    <input type="txtStkM" class="form-control" id="txtStkM" name="txtNom" required th:field="*{stockMinimo}" th:value="${insumo.stockMinimo}">
+                    <input type="text" class="form-control" id="txtStkM" name="txtNom" required th:field="*{stockMinimo}" th:value="${insumo.stockMinimo}">
                 </div>
                 <div class="col-5">
                     <label for="txtStk" class="form-label">Stock:</label>

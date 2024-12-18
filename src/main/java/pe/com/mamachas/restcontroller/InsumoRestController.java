@@ -3,6 +3,7 @@ package pe.com.mamachas.restcontroller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.com.mamachas.dto.InsumoDTO;
+import pe.com.mamachas.entity.InsumoEntity;
 import pe.com.mamachas.service.InsumoService;
 
 import java.util.List;
@@ -35,9 +36,13 @@ public class InsumoRestController {
     }
 
     @PutMapping("/{id}")
-    public InsumoDTO update(@PathVariable long id, @RequestBody InsumoDTO i){
-        return servicio.update(i, id);
+    public InsumoEntity update(@PathVariable long id, @RequestBody InsumoEntity i){
+        return servicio.update(i);
     }
+//    @PutMapping("/{id}")
+//    public InsumoDTO update(@PathVariable long id, @RequestBody InsumoDTO i){
+//        return servicio.update(i, id);
+//    }
 
     @DeleteMapping("/{id}")
     public InsumoDTO delete(@PathVariable long id) {

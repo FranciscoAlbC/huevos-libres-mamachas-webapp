@@ -1,6 +1,7 @@
 package pe.com.mamachas.service.impl;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.com.mamachas.dto.DetalleOrdenCompraDTO;
@@ -55,11 +56,18 @@ public class DetalleOrdenCompraServiceImpl implements DetalleOrdenCompraService 
     }
 
     @Override
-    public DetalleOrdenCompraDTO update(DetalleOrdenCompraDTO doc, Long id) {
-        DetalleOrdenCompraEntity detalleOrdenCompra = repositorio.findById(id).get();
-        mapper.map(doc, detalleOrdenCompra);
-        return mapper.map(repositorio.save(detalleOrdenCompra), DetalleOrdenCompraDTO.class);
+    public DetalleOrdenCompraEntity update(DetalleOrdenCompraEntity doc) {
+        DetalleOrdenCompraEntity detalleOrdenCompra = repositorio.getById(doc.getCodigo());
+        BeanUtils.copyProperties(doc, detalleOrdenCompra);
+        return repositorio.save(detalleOrdenCompra);
     }
+
+//    @Override
+//    public DetalleOrdenCompraDTO update(DetalleOrdenCompraDTO doc, Long id) {
+//        DetalleOrdenCompraEntity detalleOrdenCompra = repositorio.findById(id).get();
+//        mapper.map(doc, detalleOrdenCompra);
+//        return mapper.map(repositorio.save(detalleOrdenCompra), DetalleOrdenCompraDTO.class);
+//    }
 
     @Override
     public DetalleOrdenCompraDTO delete(Long id) {

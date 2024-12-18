@@ -1,6 +1,7 @@
 package pe.com.mamachas.service.impl;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.com.mamachas.dto.MovimientoStockDTO;
@@ -46,12 +47,20 @@ public class MovimientoStockServiceImpl implements MovimientoStockService {
         return mapper.map(repositorio.save(movStock), MovimientoStockDTO.class);
     }
 
+
     @Override
-    public MovimientoStockDTO update(MovimientoStockDTO ms, Long id) {
-        MovimientoStockEntity movStock = repositorio.findById(id).get();
-        mapper.map(ms, movStock);
-        return mapper.map(repositorio.save(movStock), MovimientoStockDTO.class);
+    public MovimientoStockEntity update(MovimientoStockEntity ms) {
+        MovimientoStockEntity objmovs = repositorio.getById(ms.getCodigo());
+        BeanUtils.copyProperties(ms, objmovs);
+        return repositorio.save(objmovs);
     }
+
+//    @Override
+//    public MovimientoStockDTO update(MovimientoStockDTO ms, Long id) {
+//        MovimientoStockEntity movStock = repositorio.findById(id).get();
+//        mapper.map(ms, movStock);
+//        return mapper.map(repositorio.save(movStock), MovimientoStockDTO.class);
+//    }
 
     @Override
     public MovimientoStockDTO delete(Long id) {

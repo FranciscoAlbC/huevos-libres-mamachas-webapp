@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="cboTipI" class="form-label">Tipo de Insumo:</label>
-                    <select id="cboTipI" name="cboTipI" class="form-select" required th:field="*{tipoInsumo}">
+                    <select id="cboTipI" name="cboTipI" class="form-select" required th:field="*{tipoInsumo.codigo}">
                         <option value="0">Seleccione un Tipo de Insumo</option>
                         <option
                                 th:each="ti : ${tipoinsumos}"
@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-5">
                     <label for="txtStkM" class="form-label">Stock Minimo:</label>
-                    <input type="txtStkM" class="form-control" id="txtStkM" name="txtNom" required th:field="*{stockMinimo}">
+                    <input type="text" class="form-control" id="txtStkM" name="txtNom" required th:field="*{stockMinimo}">
                 </div>
                 <div class="col-5">
                     <label for="txtStk" class="form-label">Stock:</label>

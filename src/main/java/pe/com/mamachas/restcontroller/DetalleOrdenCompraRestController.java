@@ -3,6 +3,7 @@ package pe.com.mamachas.restcontroller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.com.mamachas.dto.DetalleOrdenCompraDTO;
+import pe.com.mamachas.entity.DetalleOrdenCompraEntity;
 import pe.com.mamachas.service.DetalleOrdenCompraService;
 
 import java.util.List;
@@ -33,10 +34,16 @@ public class DetalleOrdenCompraRestController {
         return servicio.add(doc);
     }
 
+
     @PutMapping("/{id}")
-    public DetalleOrdenCompraDTO update(@PathVariable long id, @RequestBody DetalleOrdenCompraDTO doc){
-        return servicio.update(doc, id);
+    public DetalleOrdenCompraEntity update(@PathVariable long id, @RequestBody DetalleOrdenCompraEntity doc){
+        return servicio.update(doc);
     }
+
+//    @PutMapping("/{id}")
+//    public DetalleOrdenCompraDTO update(@PathVariable long id, @RequestBody DetalleOrdenCompraDTO doc){
+//        return servicio.update(doc, id);
+//    }
 
     @DeleteMapping("/{id}")
     public DetalleOrdenCompraDTO delete(@PathVariable long id) {

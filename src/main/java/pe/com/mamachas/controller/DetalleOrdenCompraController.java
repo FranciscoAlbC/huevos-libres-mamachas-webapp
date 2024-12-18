@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pe.com.mamachas.dto.DetalleOrdenCompraDTO;
+import pe.com.mamachas.dto.OrdenCompraDTO;
+import pe.com.mamachas.entity.DetalleOrdenCompraEntity;
 import pe.com.mamachas.service.DetalleOrdenCompraService;
 import pe.com.mamachas.service.OrdenCompraService;
 
@@ -75,8 +77,16 @@ public class DetalleOrdenCompraController {
     }
 
     @PostMapping("/detalleordencompra/actualizar/{id}")
-    public String ActualizarDetalleOrdenCompra(@PathVariable Long id, @ModelAttribute("tipoinsumo") DetalleOrdenCompraDTO doc) {
-        servicio.update(doc, id);
+    public String ActualizarDetalleOrdenCompra(@PathVariable Long id, @ModelAttribute("tipoinsumo") DetalleOrdenCompraEntity doc) {
+        servicio.update(doc);
         return "redirect:/detalleordencompra/listar";
     }
+
+//    @PostMapping("/detalleordencompra/actualizar/{id}")
+//    public String ActualizarDetalleOrdenCompra(@PathVariable Long id, @ModelAttribute("tipoinsumo") DetalleOrdenCompraDTO doc) {
+//        OrdenCompraDTO oc = servicioOrdenCompra.findById(doc.getOrdenCompra().getCodigo());
+//        doc.setOrdenCompra(oc);
+//        servicio.update(doc, id);
+//        return "redirect:/detalleordencompra/listar";
+//    }
 }

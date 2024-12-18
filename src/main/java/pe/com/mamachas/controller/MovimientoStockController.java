@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pe.com.mamachas.dto.MovimientoStockDTO;
+import pe.com.mamachas.entity.MovimientoStockEntity;
 import pe.com.mamachas.service.DetalleOrdenCompraService;
 import pe.com.mamachas.service.InsumoService;
 import pe.com.mamachas.service.MovimientoStockService;
@@ -73,6 +74,12 @@ public class MovimientoStockController {
     public MovimientoStockDTO ModeloMovStock() {
         return new MovimientoStockDTO();
     }
+
+    @ModelAttribute("movimientostockEnt")
+    public MovimientoStockEntity ModeloMovStockEnt() {
+        return new MovimientoStockEntity();
+    }
+
     @PostMapping("/movimientostock/registrar")
 
     public String RegistrarMovStock(@ModelAttribute("movimientostock") MovimientoStockDTO ms) {
@@ -81,8 +88,14 @@ public class MovimientoStockController {
     }
 
     @PostMapping("/movimientostock/actualizar/{id}")
-    public String ActualizarMovStock(@PathVariable Long id, @ModelAttribute("movimientostock") MovimientoStockDTO ms) {
-        servicio.update(ms, id);
+    public String ActualizarMovStock(@PathVariable Long id, @ModelAttribute("movimientostockEnt") MovimientoStockEntity ms) {
+        servicio.update(ms);
         return "redirect:/movimientostock/listar";
     }
+
+//    @PostMapping("/movimientostock/actualizar/{id}")
+//    public String ActualizarMovStock(@PathVariable Long id, @ModelAttribute("movimientostock") MovimientoStockDTO ms) {
+//        servicio.update(ms, id);
+//        return "redirect:/movimientostock/listar";
+//    }
 }

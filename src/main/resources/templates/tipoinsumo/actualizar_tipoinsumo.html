@@ -15,7 +15,7 @@
         </div>
         <div class="card-body">
             <!-- inicio formulario -->
-            <form th:action="@{/tipoinsumo/actualizar/{id}(id=${tipoinsumo.codigo})}" method="post" th:object="${tipoinsumos}">
+            <form th:action="@{/tipoinsumo/actualizar/{id}(id=${tipoinsumos.codigo})}" method="post" th:object="${tipoinsumos}">
                 <div class="col-5">
                     <label for="txtCod" class="form-label">Codigo:</label>
                     <input type="text" class="form-control" id="txtCod" name="txtCod" readonly th:field="*{codigo}" th:value="${tipoinsumo.codigo}">
@@ -31,7 +31,7 @@
                         <label class="form-check-label" for="chkEst">Habilitado</label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-success">Actualizar</button>
+                <button type="submit" class="btn btn-success" id="btnActualizar" name="btnActualizar">Actualizar</button>
             </form>
             <!-- fin formulario -->
         </div>

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pe.com.mamachas.dto.InsumoDTO;
+import pe.com.mamachas.entity.InsumoEntity;
 import pe.com.mamachas.service.InsumoService;
 import pe.com.mamachas.service.TipoInsumoService;
 
@@ -73,10 +74,16 @@ public class InsumoController {
         return "redirect:/insumo/listar";
     }
 
+
     @PostMapping("/insumo/actualizar/{id}")
-    public String ActualizarInsumo(@PathVariable Long id, @ModelAttribute("tipoinsumo") InsumoDTO i) {
-        servicio.update(i, id);
+    public String ActualizarInsumo(@PathVariable Long id, @ModelAttribute("tipoinsumo") InsumoEntity i) {
+        servicio.update(i);
         return "redirect:/insumo/listar";
     }
+//    @PostMapping("/insumo/actualizar/{id}")
+//    public String ActualizarInsumo(@PathVariable Long id, @ModelAttribute("tipoinsumo") InsumoDTO i) {
+//        servicio.update(i, id);
+//        return "redirect:/insumo/listar";
+//    }
 
 }

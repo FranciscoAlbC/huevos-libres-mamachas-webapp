@@ -15,22 +15,26 @@
         </div>
         <div class="card-body">
             <!-- inicio formulario -->
-            <form th:action="@{/detalleordencompra/actualizar/{id}(id=${detalleordencompra.codigo})}" method="post" th:object="${detalleordencompras}">
+            <form th:action="@{/detalleordencompra/actualizar/{id}(id=${detalleordencompras.codigo})}" method="post" th:object="${detalleordencompras}">
                 <div class="col-5">
                     <label for="txtCod" class="form-label">Codigo:</label>
-                    <input type="text" class="form-control" id="txtCod" name="txtCod" readonly th:field="*{codigo}" th:value="${detalleordencompra.codigo}">
+                    <input type="number" class="form-control" id="txtCod" name="txtCod" readonly th:field="*{codigo}" th:value="${detalleordencompra.codigo}">
+                </div>
+                <div class="col-5">
+                    <label for="txtCant" class="form-label">Cantidad:</label>
+                    <input type="number" class="form-control" id="txtCant" name="txtCant"  th:field="*{cantidad}" th:value="${detalleordencompra.cantidad}">
                 </div>
                 <div class="col-md-4">
                     <label for="punit" class="form-label">Precio Unitario:</label>
-                    <input type="number" class="form-control" id="punit" name="punit" required th:field="*{precioUnitario}">
+                    <input type="number" class="form-control" id="punit" name="punit" required th:field="*{precioUnitario}" th:value="${detalleordencompra.precioUnitario}">
                 </div>
                 <div class="col-md-4">
                     <label for="ptot" class="form-label">Precio Total:</label>
-                    <input type="number" class="form-control" id="ptot" name="ptot" required th:field="*{precioTotal}">
+                    <input type="number" class="form-control" id="ptot" name="ptot" required th:field="*{precioTotal}" th:value="${detalleordencompra.precioTotal}">
                 </div>
                 <div class="col-md-4">
                     <label for="cboOC" class="form-label">Orden de Compra:</label>
-                    <select id="cboOC" name="cboOC" class="form-select" required th:field="*{ordenCompra}">
+                    <select id="cboOC" name="cboOC" class="form-select" required th:field="*{ordenCompra.codigo}">
                         <option value="0">Seleccione una Orden de Compra</option>
                         <option
                                 th:each="oc : ${ordencompras}"
