@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crear nuevo producto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="card mt-4">
+        <div class="card-header text-center">
+            <h1>Crear nuevo producto</h1>
+        </div>
+        <div class="card-body">
+            <form th:action="@{/producto/registrar}" th:object="${productos}" method="POST">
+                <div class="mb-3">
+                    <label for="tipoHuevo" class="form-label">Tipo de huevo:</label>
+                    <input type="text" id="tipoHuevo" class="form-control" th:field="*{tipoHuevo}" required />
+                </div>
+                <div class="mb-3">
+                    <label for="medida" class="form-label">Medida:</label>
+                    <input type="text" id="medida" class="form-control" th:field="*{medida}" required />
+                </div>
+                <div class="mb-3">
+                    <label for="fechaRecoleccion" class="form-label">Fecha de recolección:</label>
+                    <input type="date" id="fechaRecoleccion" class="form-control" th:field="*{fechaRecoleccion}" required />
+                </div>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="estado" th:field="*{estado}" />
+                    <label class="form-check-label" for="estado">Activo</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+        </div>
+        <div class="card-footer text-center">
+            <a th:href="@{/producto/lista}" class="btn btn-secondary">Volver</a>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
