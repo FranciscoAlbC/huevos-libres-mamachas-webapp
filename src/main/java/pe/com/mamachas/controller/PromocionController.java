@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
-
 import pe.com.mamachas.entity.PromocionEntity;
 import pe.com.mamachas.service.PromocionService;
 
@@ -69,5 +68,18 @@ public class PromocionController {
     public String deletePromocion(@PathVariable int id) {
         promoService.delete(id);
         return "redirect:/promocion/lista"; 
+    }
+
+
+    @GetMapping("/detalle/{id}")
+    public String mostrarDetalle(@PathVariable int id, Model model) {
+        Optional<PromocionEntity> promocion = promoService.findById(id);
+        if (promocion.isPresent()) {
+            model.addAttribute("promocion", promocion.get());
+            return "promocion/detalle";
+        }else 
+        {
+            return "redirect:/promocion/lista";
+        }
     }
 }

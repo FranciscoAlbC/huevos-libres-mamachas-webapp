@@ -71,6 +71,18 @@ public class ProductoController {
         prodService.delete(id);
         return "redirect:/producto/lista"; 
     }
+
+    @GetMapping("/detalle/{id}")
+    public String mostrarDetalle(@PathVariable int id, Model model) {
+        Optional<ProductoEntity> producto = prodService.findById(id);
+        if (producto.isPresent()) {
+            model.addAttribute("producto", producto.get());
+            return "producto/detalle";
+        }else 
+        {
+            return "redirect:/producto/lista";
+        }
+    }
 }
 
 

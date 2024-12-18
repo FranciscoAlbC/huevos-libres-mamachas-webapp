@@ -28,29 +28,29 @@ public class VentaEntity implements Serializable{
     @Column(name = "fecha")
     private Date fecha;
 
-    @Column(name = "montoTotalSinIGV")
+    @Column(name = "montototalsinigv")
     private float montoTotalSinIGV;
 
-    @Column(name = "montoIGV")
+    @Column(name = "montoigv")
     private float montoIGV;
 
-    @Column(name = "montoTotalConIGV")
+    @Column(name = "montototalconigv")
     private float montoTotalConIGV;
 
    /*  @OneToOne
-    @JoinColumn(name="idPedido")
+    @JoinColumn(name="idpedido")
     private PedidoEntity pedido;
     
     @ManyToOne
-    @JoinColumn(name="idCliente")
+    @JoinColumn(name="idcliente")
     private ClienteEntity cliente;
 
     @OneToOne
-    @JoinColumn(name="idPago")
+    @JoinColumn(name="idpago")
     private PagoEntity pago; */
 
     @ManyToOne
-    @JoinColumn(name="idPromocion")
+    @JoinColumn(name="idpromocion")
     private PromocionEntity promocion;
 
     @Column(name = "estado")

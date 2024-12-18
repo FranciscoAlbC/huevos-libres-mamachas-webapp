@@ -13,9 +13,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Builder
 
-
 @Entity(name = "DetalleVentaEntity")
-@Table(name = "DetalleVenta")
+@Table(name = "detalleventa")
 public class DetalleVentaEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -28,21 +27,18 @@ public class DetalleVentaEntity implements Serializable {
     @Column(name = "cantidad")
     private float cantidad;
 
-    @Column(name = "precioUnitario")
+    @Column(name = "preciounitario")
     private float precioUnitario;
 
-    @Column(name = "precioTotal")
+    @Column(name = "preciototal")
     private float precioTotal;
 
-    @Column(name = "montoTotalConIGV")
-    private float montoTotalConIGV;
-
     @ManyToOne
-    @JoinColumn(name="idVenta")
+    @JoinColumn(name="idventa")
     private VentaEntity venta;
     
     @ManyToOne
-    @JoinColumn(name="idProducto")
+    @JoinColumn(name="idproducto")
     private ProductoEntity producto;
 
     @Column(name = "estado")
