@@ -9,10 +9,13 @@ import lombok.experimental.SuperBuilder;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TipoInsumoDTO {
+public class DetalleOrdenCompraDTO {
 
     private long codigo;
-    private String nombre;
+    private float cantidad;
+    private float precioUnitario;
+    private float precioTotal;
     private boolean estado;
+    private OrdenCompraDTO ordenCompra;
 
 }

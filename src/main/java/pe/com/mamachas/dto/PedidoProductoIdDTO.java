@@ -3,16 +3,13 @@ package pe.com.mamachas.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
 
-@SuperBuilder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TipoInsumoDTO {
+public class PedidoProductoIdDTO {
 
-    private long codigo;
-    private String nombre;
-    private boolean estado;
+    private Integer idPedido;
+    private Integer idProducto;
 
 }

@@ -9,10 +9,13 @@ import lombok.experimental.SuperBuilder;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TipoInsumoDTO {
+public class InsumoDTO {
 
     private long codigo;
     private String nombre;
+    private TipoInsumoDTO tipoInsumo;
+    private float stockMinimo;
+    private float stock;
     private boolean estado;
 
 }
