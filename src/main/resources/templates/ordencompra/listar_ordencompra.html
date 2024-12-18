@@ -29,7 +29,7 @@
                         <th scope="col">Fecha Pago</th>
                         <th scope="col">Medio Pago</th>
                         <th scope="col">Voucher Pago</th>
-<!--                        <th scope="col">Proveedor</th>-->
+                        <th scope="col">Proveedor</th>
                         <th scope="col">Actualizar</th>
                         <th scope="col">Eliminar</th>
                     </tr>
@@ -46,7 +46,7 @@
                         <td th:text="${oc.fechaPago}"></td>
                         <td th:text="${oc.medioPago}"></td>
                         <td th:text="${oc.voucherPago}"></td>
-<!--                        <td th:text="${oc.proveedor.nombre}"></td>-->
+                        <td th:text="${oc.proveedor.nomProveedor}"></td>
                         <td><a th:href="@{/ordencompra/actualizar/{id}(id=${oc.codigo})}" class="btn btn-success">Seleccionar</a></td>
                         <td><a th:href="@{/ordencompra/eliminar/{id}(id=${oc.codigo})}" class="btn btn-danger">Seleccionar</a></td>
                     </tr>
@@ -55,7 +55,7 @@
             </div>
             <!-- fin de la tabla -->
             <div style="margin: auto;">
-                <a th:href="@{/ordencompra/registro}" class="btn btn-primary">Nuevo Orden Compra</a>
+                <a th:href="@{/ordencompra/registro}" class="btn btn-primary">Nueva Orden Compra</a>
             </div>
             <div class="mt-2"></div>
             <div style="margin: auto;">

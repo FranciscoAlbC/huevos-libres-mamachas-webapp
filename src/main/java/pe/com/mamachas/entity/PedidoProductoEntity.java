@@ -19,11 +19,18 @@ public class PedidoProductoEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @EmbeddedId
-//    @AttributeOverrides({
-//            @AttributeOverride(name = "idPedido", column = @Column(name = "idPedido")),
-//            @AttributeOverride(name = "idProducto", column = @Column(name = "idProducto")),
-//    })
     private PedidoProductoId codigo;
+
+    //todo
+//    @ManyToOne
+//    @MapsId("IdPedido")
+//    @JoinColumn(name="idPedido", referencedColumnName = "codigo")
+//    private PedidoEntity pedido;
+
+    @ManyToOne
+    @MapsId("IdProducto")
+    @JoinColumn(name = "idProducto", referencedColumnName = "codigo")
+    private ProductoEntity producto;
 
     @Column(name = "cantidad")
     private float cantidad;

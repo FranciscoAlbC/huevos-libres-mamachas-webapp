@@ -18,7 +18,7 @@
             <form th:action="@{/ordencompra/registrar}" method="post" th:object="${ordencompra}">
                 <div class="col-5">
                     <label for="dtpFec" class="form-label">Fecha:</label>
-                    <input type="Date" class="form-control" id="dtpFec" name="dtpFec" required th:field="*{fecha}">
+                    <input type="date" class="form-control" id="dtpFec" name="dtpFec" required th:field="*{fecha}">
                 </div>
                 <div class="col-5">
                     <label for="chkEst" class="form-label">Estado:</label>
@@ -55,10 +55,17 @@
                     <label for="txtvoucher" class="form-label">Voucher Pago:</label>
                     <input type="text" class="form-control" id="txtvoucher" name="txtvoucher" th:field="*{voucherPago}">
                 </div>
-<!--                <div class="col-5">-->
-<!--                    <label for="txtNom" class="form-label">Proveedor:</label>-->
-<!--                    <input type="text" class="form-control" id="txtNom" name="txtNom" required th:field="*{nombre}">-->
-<!--                </div>-->
+                <div class="col-md-4">
+                    <label for="cboProv" class="form-label">Proveedor:</label>
+                    <select id="cboProv" name="cboProv" class="form-select" required th:field="*{proveedor.codigo}">
+                        <option value="0">Seleccione un Proveedor</option>
+                        <option
+                                th:each="p : ${proveedores}"
+                                th:value="${p.codigo}"
+                                th:text="${p.nomProveedor}"
+                        ></option>
+                    </select>
+                </div>
                 <button type="submit" class="btn btn-primary">Registrar</button>
             </form>
             <!-- fin formulario -->

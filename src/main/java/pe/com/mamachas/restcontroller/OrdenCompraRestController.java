@@ -3,6 +3,7 @@ package pe.com.mamachas.restcontroller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.com.mamachas.dto.OrdenCompraDTO;
+import pe.com.mamachas.entity.OrdenCompraEntity;
 import pe.com.mamachas.service.OrdenCompraService;
 
 
@@ -36,8 +37,8 @@ public class OrdenCompraRestController {
     }
 
     @PutMapping("/{id}")
-    public OrdenCompraDTO update(@PathVariable long id, @RequestBody OrdenCompraDTO oc){
-        return servicio.update(oc, id);
+    public OrdenCompraEntity update(@PathVariable long id, @RequestBody OrdenCompraEntity oc){
+        return servicio.update(oc);
     }
 
     @DeleteMapping("/{id}")

@@ -1,6 +1,8 @@
 package pe.com.mamachas.service;
 
 import pe.com.mamachas.dto.OrdenCompraDTO;
+import pe.com.mamachas.entity.OrdenCompraEntity;
+
 import java.util.List;
 
 public interface OrdenCompraService {
@@ -9,7 +11,7 @@ public interface OrdenCompraService {
     List<OrdenCompraDTO> findAllCustom();
     OrdenCompraDTO findById(Long id);
     OrdenCompraDTO add(OrdenCompraDTO oc);
-    OrdenCompraDTO update(OrdenCompraDTO oc, Long id);
+    OrdenCompraEntity update(OrdenCompraEntity oc);
     OrdenCompraDTO delete(Long id);
     OrdenCompraDTO enable(Long id);
 }

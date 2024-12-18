@@ -51,7 +51,7 @@ public class OrdenCompraEntity implements Serializable {
     @Column(name = "voucherPago")
     private byte[] voucherPago;
 
-//    @ManyToOne
-//    @JoinColumn(name = "codigo", nullable = false)
-//    private ProveedorEntity proveedor; //error hasta que se implemente ProveedorEntity
+    @ManyToOne
+    @JoinColumn(name = "codigoProveedor", referencedColumnName = "codigo", nullable = false)
+    private ProveedorEntity proveedor;
 }

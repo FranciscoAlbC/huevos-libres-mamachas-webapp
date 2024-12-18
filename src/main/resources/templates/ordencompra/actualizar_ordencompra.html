@@ -15,10 +15,14 @@
         </div>
         <div class="card-body">
             <!-- inicio formulario -->
-            <form th:action="@{/ordencompra/actualizar/{id}(id=${ordencompra.codigo})}" method="post" th:object="${ordencompras}">
+            <form th:action="@{/ordencompra/actualizar/{id}(id=${ordencompras.codigo})}" method="post" th:object="${ordencompras}">
+                <div class="col-5">
+                    <label for="cod" class="form-label">Codigo:</label>
+                    <input type="text" class="form-control" id="cod" name="cod" required readonly th:field="*{codigo}" th:value="${ordencompra.codigo}">
+                </div>
                 <div class="col-5">
                     <label for="dtpFec" class="form-label">Fecha:</label>
-                    <input type="Date" class="form-control" id="dtpFec" name="dtpFec" required th:field="*{fecha}" th:value="${ordencompra.fecha}">
+                    <input type="date" class="form-control" id="dtpFec" name="dtpFec" required th:field="*{fecha}" th:value="${ordencompra.fecha}">
                 </div>
                 <div class="col-5">
                     <label for="chkEst" class="form-label">Estado:</label>
@@ -54,6 +58,17 @@
                 <div class="col-5">
                     <label for="txtvoucher" class="form-label">Voucher Pago:</label>
                     <input type="text" class="form-control" id="txtvoucher" name="txtvoucher" th:field="*{voucherPago}" th:value="${ordencompra.voucherPago}">
+                </div>
+                <div class="col-md-4">
+                    <label for="cboProv" class="form-label">Proveedor:</label>
+                    <select id="cboProv" name="cboProv" class="form-select" required th:field="*{proveedor.codigo}">
+                        <option value="0">Seleccione un Proveedor</option>
+                        <option
+                                th:each="p : ${proveedores}"
+                                th:value="${p.codigo}"
+                                th:text="${p.nomProveedor}"
+                        ></option>
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-success">Actualizar</button>
             </form>

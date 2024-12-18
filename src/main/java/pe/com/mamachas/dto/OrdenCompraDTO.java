@@ -24,7 +24,6 @@ public class OrdenCompraDTO {
     private String medioPago;
     private byte[] voucherPago;
 
-    //Error hasta que se implemente ProveedorDTO
-//    private ProveedorDTO proveedor;
+    private ProveedorDTO proveedor;
 
 }

@@ -1,6 +1,7 @@
 package pe.com.mamachas.service.impl;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.com.mamachas.dto.OrdenCompraDTO;
@@ -47,10 +48,10 @@ public class OrdenCompraServiceImpl implements OrdenCompraService {
     }
 
     @Override
-    public OrdenCompraDTO update(OrdenCompraDTO oc, Long id) {
-        OrdenCompraEntity ordenCompra = repositorio.findById(id).get();
-        mapper.map(oc, ordenCompra);
-        return mapper.map(repositorio.save(ordenCompra), OrdenCompraDTO.class);
+    public OrdenCompraEntity update(OrdenCompraEntity oc) {
+        OrdenCompraEntity objoc = repositorio.getById(oc.getCodigo());
+        BeanUtils.copyProperties(oc, objoc);
+        return repositorio.save(objoc);
     }
 
     @Override

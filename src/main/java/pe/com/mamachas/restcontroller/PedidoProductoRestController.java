@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.com.mamachas.dto.PedidoProductoDTO;
 import pe.com.mamachas.dto.PedidoProductoIdDTO;
+import pe.com.mamachas.entity.PedidoProductoEntity;
+import pe.com.mamachas.entity.PedidoProductoId;
 import pe.com.mamachas.service.PedidoProductoService;
 
 import java.util.List;
@@ -37,10 +39,16 @@ public class PedidoProductoRestController {
     }
 
     @PutMapping("/{idPedido}/{idProducto}")
-    public PedidoProductoDTO update(@PathVariable Integer idPedido, @PathVariable Integer idProducto, @RequestBody PedidoProductoDTO pp){
-        PedidoProductoIdDTO id = new PedidoProductoIdDTO(idPedido, idProducto);
-        return servicio.update(pp, id);
+    public PedidoProductoEntity update(@PathVariable Integer idPedido, @PathVariable Integer idProducto, @RequestBody PedidoProductoEntity pp){
+        PedidoProductoId id = new PedidoProductoId(idPedido, idProducto);
+        pp.setCodigo(id);
+        return servicio.update(pp);
     }
+//    @PutMapping("/{idPedido}/{idProducto}")
+//    public PedidoProductoDTO update(@PathVariable Integer idPedido, @PathVariable Integer idProducto, @RequestBody PedidoProductoDTO pp){
+//        PedidoProductoIdDTO id = new PedidoProductoIdDTO(idPedido, idProducto);
+//        return servicio.update(pp, id);
+//    }
 
     @DeleteMapping("/{idPedido}/{idProducto}")
     public PedidoProductoDTO delete(@PathVariable Integer idPedido, @PathVariable Integer idProducto) {

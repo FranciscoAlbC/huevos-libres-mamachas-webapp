@@ -8,13 +8,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pe.com.mamachas.dto.OrdenCompraDTO;
+import pe.com.mamachas.entity.OrdenCompraEntity;
 import pe.com.mamachas.service.OrdenCompraService;
+import pe.com.mamachas.service.ProveedorService;
 
 @Controller
 public class OrdenCompraController {
 
     @Autowired
     private OrdenCompraService servicio;
+
+    @Autowired
+    private ProveedorService proveedorService;
 
     @GetMapping("/ordencompra/listar")
     public String MostrarOrdenCompra(Model model) {
@@ -23,12 +28,14 @@ public class OrdenCompraController {
     }
 
     @GetMapping("/ordencompra/registro")
-    public String MostrarRegistroOrdenCompra() {
+    public String MostrarRegistroOrdenCompra(Model model) {
+        model.addAttribute("proveedores", proveedorService.findAllCustom());
         return "ordencompra/registrar_ordencompra";
     }
 
     @GetMapping("/ordencompra/actualizar/{id}")
     public String MostrarActualizarOrdenCompra(@PathVariable Long id, Model model) {
+        model.addAttribute("proveedores", proveedorService.findAllCustom());
         model.addAttribute("ordencompras", servicio.findById(id));
         return "ordencompra/actualizar_ordencompra";
     }
@@ -62,6 +69,11 @@ public class OrdenCompraController {
         return new OrdenCompraDTO();
     }
 
+    @ModelAttribute("ordencompraEnt")
+    public OrdenCompraEntity ModeloOrdenCompraEnt() {
+        return new OrdenCompraEntity();
+    }
+
 
     @PostMapping("/ordencompra/registrar")
     public String RegistrarOrdenCompra(@ModelAttribute("ordencompra") OrdenCompraDTO oc) {
@@ -70,8 +82,8 @@ public class OrdenCompraController {
     }
 
     @PostMapping("/ordencompra/actualizar/{id}")
-    public String ActualizarOrdenCompra(@PathVariable Long id, @ModelAttribute("ordencompra") OrdenCompraDTO oc) {
-        servicio.update(oc, id);
+    public String ActualizarOrdenCompra(@PathVariable Long id, @ModelAttribute("ordencompraEnt") OrdenCompraEntity oc) {
+        servicio.update(oc);
         return "redirect:/ordencompra/listar";
     }
 }

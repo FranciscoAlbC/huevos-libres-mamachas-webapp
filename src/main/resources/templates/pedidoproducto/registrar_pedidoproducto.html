@@ -14,54 +14,35 @@
             <h1>Registro Pedido Producto</h1>
         </div>
 
-        <!--TODO AGREGAR combos -->
-        <div class="card-body">
-            <div class="col-md-4">
-                <label for="cboidPed" class="form-label"
-                >Tipo de Documento:</label
-                >
-                <select
-                        id="cboidPed"
-                        name="cboidPed"
-                        class="form-select"
-                        required
-                        th:field="*{tipodocumento.codigo}"
-                >
-                    <option value="0" disabled selected>Seleccione un Tipo de Documento</option>
-                    <option
-                            th:each="tipodocumento : ${tipodocumentos}"
-                            th:value="${tipodocumento.codigo}"
-                            th:text="${tipodocumento.nombre}"
-
-                    ></option>
-                </select>
-            </div>
-            <div class="col-md-4">
-                <label for="cboTipoDocumento" class="form-label"
-                >Tipo de Documento:</label
-                >
-                <select
-                        id="cboTipoDocumento"
-                        name="cboTipoDocumento"
-                        class="form-select"
-                        required
-                        th:field="*{tipodocumento.codigo}"
-                >
-                    <option value="0" disabled selected>Seleccione un Tipo de Documento</option>
-                    <option
-                            th:each="tipodocumento : ${tipodocumentos}"
-                            th:value="${tipodocumento.codigo}"
-                            th:text="${tipodocumento.nombre}"
-
-                    ></option>
-                </select>
-            </div>
-
-
-
             <!-- inicio formulario -->
             <form th:action="@{/pedidoproducto/registrar}" method="post" th:object="${pedidoproducto}">
-                <div class="col-5">
+                <div class="card-body">
+                    <div class="col-md-4">
+                        <label for="cboPedido" class="form-label" th:field="*{codigo.idPedido}">Cod Pedido:</label>
+                        <select id="cboPedido" name="pedidoCodigo" class="form-select" required>
+                            <option value="0">Seleccione un Cod Pedido</option>
+                            <option
+                                th:each="entry : ${productos.entrySet()}"
+                                th:value="${entry.key}"
+                                th:text="${entry.value}"
+                            ></option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="cboProducto" class="form-label" th:field="*{codigo.idProducto}">Producto:</label>
+                    <select id="cboProducto" name="productoId" class="form-select" required>
+                        <option value="0">Seleccione un Cod Pedido</option>
+                        <option
+                                th:each="p : ${pedidoproductos}"
+                                th:value="${productos[p.codigo.idProducto]}"
+                                th:text="${productos[p.codigo.idProducto]}"
+                        ></option>
+                    </select>
+                </div>
+
+                    <div class="col-5">
                     <label for="txtNom" class="form-label">Cantidad:</label>
                     <input type="text" class="form-control" id="txtNom" name="txtNom" required th:field="*{cantidad}">
                 </div>

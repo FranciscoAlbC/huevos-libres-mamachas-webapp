@@ -37,17 +37,19 @@ public class VentaEntity implements Serializable{
     @Column(name = "montototalconigv")
     private float montoTotalConIGV;
 
-    @OneToOne
-    @JoinColumn(name="idpedido")
-    private PedidoEntity pedido;
-    
-    @ManyToOne
-    @JoinColumn(name="idcliente")
-    private ClienteEntity cliente;
-
-    @OneToOne
-    @JoinColumn(name="idpago")
-    private PagoEntity pago; 
+    //TODO
+    //Hasta Merge de Sugey
+//    @OneToOne
+//    @JoinColumn(name="idpedido")
+//    private PedidoEntity pedido;
+//
+//    @ManyToOne
+//    @JoinColumn(name="idcliente")
+//    private ClienteEntity cliente;
+//
+//    @OneToOne
+//    @JoinColumn(name="idpago")
+//    private PagoEntity pago;
 
     @ManyToOne
     @JoinColumn(name="idpromocion")

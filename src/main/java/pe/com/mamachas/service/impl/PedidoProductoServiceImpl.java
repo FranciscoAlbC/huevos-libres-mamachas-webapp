@@ -1,6 +1,8 @@
 package pe.com.mamachas.service.impl;
 
+import org.hibernate.annotations.DialectOverride;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.com.mamachas.dto.PedidoProductoDTO;
@@ -47,14 +49,21 @@ public class PedidoProductoServiceImpl implements PedidoProductoService {
         return mapper.map(repositorio.save(pedidoProducto), PedidoProductoDTO.class);
     }
 
+
     @Override
-    public PedidoProductoDTO update(PedidoProductoDTO pp, PedidoProductoIdDTO id) {
-        PedidoProductoId codigo = new PedidoProductoId(id.getIdPedido(), id.getIdProducto());
-        PedidoProductoEntity pedidoProducto = repositorio.findById(codigo).get();
-        mapper.map(pp, pedidoProducto);
-        PedidoProductoEntity pedidoProductoActualizar = repositorio.save(pedidoProducto);
-        return mapper.map(pedidoProductoActualizar, PedidoProductoDTO.class);
+    public PedidoProductoEntity update(PedidoProductoEntity pp) {
+        PedidoProductoEntity pedidoProducto = repositorio.getById(pp.getCodigo());
+        BeanUtils.copyProperties(pp, pedidoProducto);
+        return repositorio.save(pedidoProducto);
     }
+//    @Override
+//    public PedidoProductoDTO update(PedidoProductoDTO pp, PedidoProductoIdDTO id) {
+//        PedidoProductoId codigo = new PedidoProductoId(id.getIdPedido(), id.getIdProducto());
+//        PedidoProductoEntity pedidoProducto = repositorio.findById(codigo).get();
+//        mapper.map(pp, pedidoProducto);
+//        PedidoProductoEntity pedidoProductoActualizar = repositorio.save(pedidoProducto);
+//        return mapper.map(pedidoProductoActualizar, PedidoProductoDTO.class);
+//    }
 
     @Override
     public PedidoProductoDTO delete(PedidoProductoIdDTO id) {
