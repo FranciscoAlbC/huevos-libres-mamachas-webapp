@@ -1,4 +1,4 @@
-package pe.com.lasmamachas.controller;
+package pe.com.mamachas.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import pe.com.lasmamachas.dto.ClienteDTO;
-import pe.com.lasmamachas.dto.ComprobanteDTO;
-import pe.com.lasmamachas.dto.PedidoDTO;
-import pe.com.lasmamachas.service.ClienteService;
-import pe.com.lasmamachas.service.ComprobanteService;
-import pe.com.lasmamachas.service.PedidoService;
+import pe.com.mamachas.dto.ClienteDTO;
+import pe.com.mamachas.dto.ComprobanteDTO;
+import pe.com.mamachas.dto.PedidoDTO;
+import pe.com.mamachas.service.ClienteService;
+import pe.com.mamachas.service.ComprobanteService;
+import pe.com.mamachas.service.PedidoService;
 
 @Controller
 public class ComprobanteController {

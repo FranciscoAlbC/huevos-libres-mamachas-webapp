@@ -1,4 +1,4 @@
-package pe.com.lasmamachas.entity;
+package pe.com.mamachas.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -6,7 +6,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.time.LocalDate;
 import lombok.AllArgsConstructor;
@@ -36,7 +35,6 @@ public class PedidoEntity implements Serializable {
     private LocalDate fechaPedido;
 
     @Column(name = "estado", nullable = false)
-    @NotEmpty
     private Boolean estado;
 }
  

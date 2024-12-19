@@ -1,10 +1,10 @@
-package pe.com.lasmamachas.entity;
+package pe.com.mamachas.entity;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import pe.com.lasmamachas.entity.base.BaseEntity2;
+import pe.com.mamachas.entity.base.BaseEntity2;
 
 @SuperBuilder
 @Builder

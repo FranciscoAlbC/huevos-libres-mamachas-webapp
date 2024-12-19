@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pe.com.mamachas.entity.PedidoProductoEntity;
 import pe.com.mamachas.service.PedidoProductoService;
+import pe.com.mamachas.service.PedidoService;
 import pe.com.mamachas.service.ProductoService;
 
 import java.util.List;
@@ -22,8 +23,8 @@ public class PedidoProductoController {
     @Autowired
     private ProductoService productoService;
 
-//    @Autowired
-//    private PedidoService pedidoservice;
+    @Autowired
+    private PedidoService pedidoservice;
 
 
     @GetMapping("/pedidoproducto/listar")
@@ -37,14 +38,14 @@ public class PedidoProductoController {
     @GetMapping("/pedidoproducto/registro")
     public String MostrarRegistroPedidoProducto(Model model) {
         model.addAttribute("productos", productoService.findAllCustom());
-//        model.addAttribute("pedidos", pedidoservice.findAllCustom());
+        model.addAttribute("pedidos", pedidoservice.findAllCustom());
         return "pedidoproducto/registrar_pedidoproducto";
     }
 
     @GetMapping("/pedidoproducto/actualizar/{id}")
     public String MostrarActualizarPedidoProducto(@PathVariable long id, Model model) {
         model.addAttribute("productos", productoService.findAllCustom());
-//        model.addAttribute("pedidos", pedidoservice.findAllCustom());
+        model.addAttribute("pedidos", pedidoservice.findAllCustom());
         model.addAttribute("pedidoproductos", servicio.findById(id));
         return "pedidoproducto/actualizar_pedidoproducto";
     }
@@ -60,7 +61,7 @@ public class PedidoProductoController {
     @GetMapping("/pedidoproducto/habilitar")
     public String MostrarHabilitarPedidoProducto(Model model) {
         model.addAttribute("productos", productoService.findAllCustom());
-//        model.addAttribute("pedidos", pedidoservice.findAllCustom());
+        model.addAttribute("pedidos", pedidoservice.findAllCustom());
         model.addAttribute("pedidoproductos", servicio.findAll());
         return "pedidoproducto/habilitar_pedidoproducto";
     }

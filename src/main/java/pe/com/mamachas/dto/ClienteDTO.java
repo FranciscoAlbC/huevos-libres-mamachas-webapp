@@ -1,11 +1,11 @@
-package pe.com.lasmamachas.dto;
+package pe.com.mamachas.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
-import pe.com.lasmamachas.dto.base.BaseDTO;
+import pe.com.mamachas.dto.base.BaseDTO;
 
 @SuperBuilder
 @Data

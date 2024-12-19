@@ -23,9 +23,9 @@ public class PedidoProductoEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long codigo;
 
-//    @ManyToOne
-//    @JoinColumn(name = "idPedido", nullable = false);
-//    private PedidoEntity pedido;
+    @ManyToOne
+    @JoinColumn(name = "idPedido", nullable = false)
+    private PedidoEntity pedido;
 
     @ManyToOne
     @JoinColumn(name = "idProducto", nullable = false)

@@ -18,16 +18,16 @@
             <form th:action="@{/pedidoproducto/registrar}" method="post" th:object="${pedidoproducto}">
                 <div class="card-body">
                     <div class="col-md-4">
-<!--                        <label for="cboPedido" class="form-label" th:field="*{codigo.idPedido}">Cod Pedido:</label>-->
-<!--                        <select id="cboPedido" name="pedidoCodigo" class="form-select" required>-->
-<!--                            <option value="0">Seleccione un Cod Pedido</option>-->
-<!--                            <option-->
-<!--                                th:each="entry : ${productos.entrySet()}"-->
-<!--                                th:value="${entry.key}"-->
-<!--                                th:text="${entry.value}"-->
-<!--                            ></option>-->
+                        <label for="cboPedido" class="form-label" th:field="*{pedido.codigo}">Cod Pedido:</label>
+                        <select id="cboPedido" name="pedidoCodigo" class="form-select" required>
+                            <option value="0">Seleccione un Cod Pedido</option>
+                            <option
+                                th:each="l : ${pedidos}"
+                                th:value="${l.codigo}"
+                                th:text="${l.codigo}"
+                            ></option>
 
-<!--                        </select>-->
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-4">

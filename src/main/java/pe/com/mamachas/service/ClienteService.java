@@ -1,9 +1,9 @@
-package pe.com.lasmamachas.service;
+package pe.com.mamachas.service;
 
-import pe.com.lasmamachas.dto.ClienteDTO;
-import pe.com.lasmamachas.service.generic.GenericoService;
+import pe.com.mamachas.dto.ClienteDTO;
+import pe.com.mamachas.service.generic.GenericoService;
 
 
-public interface ClienteService extends GenericoService<ClienteDTO>{
+public interface ClienteService extends GenericoService<ClienteDTO> {
 
 }

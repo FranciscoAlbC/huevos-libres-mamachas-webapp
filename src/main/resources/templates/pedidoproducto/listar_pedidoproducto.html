@@ -31,8 +31,7 @@
                     <tbody>
                     <tr th:each="p : ${pedidoproductos}">
                         <th scope="row" th:text="${p.codigo}"></th>
-                        <td></td>
-<!--                        <td th:text="${p.pedido.nombre}"></td>-->
+                        <td th:text="${p.pedido.codigo}"></td>
                         <td th:text="${p.producto.tipoHuevo}"></td>
                         <td th:text="${p.cantidad}"></td>
                         <td th:text="${p.estado}"></td>

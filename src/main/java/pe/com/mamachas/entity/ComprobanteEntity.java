@@ -1,4 +1,4 @@
-package pe.com.lasmamachas.entity;
+package pe.com.mamachas.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,7 +16,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
-import pe.com.lasmamachas.entity.base.BaseEntity2;
+import pe.com.mamachas.entity.base.BaseEntity2;
 
 
 @SuperBuilder

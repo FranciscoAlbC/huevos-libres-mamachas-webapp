@@ -1,17 +1,17 @@
-package pe.com.lasmamachas.service.impl;
+package pe.com.mamachas.service.impl;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.com.lasmamachas.dto.PagoDTO;
-import pe.com.lasmamachas.entity.PagoEntity;
-import pe.com.lasmamachas.repository.PagoRepository;
-import pe.com.lasmamachas.service.PagoService;
+import pe.com.mamachas.dto.PagoDTO;
+import pe.com.mamachas.entity.PagoEntity;
+import pe.com.mamachas.repository.PagoRepository;
+import pe.com.mamachas.service.PagoService;
 
 @Service
-public class PagoServiceImpl implements PagoService{
+public class PagoServiceImpl implements PagoService {
     
     @Autowired
     private PagoRepository repositorio;

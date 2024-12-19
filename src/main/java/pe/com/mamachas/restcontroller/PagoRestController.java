@@ -1,4 +1,4 @@
-package pe.com.lasmamachas.restcontroller;
+package pe.com.mamachas.restcontroller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pe.com.lasmamachas.dto.PagoDTO;
-import pe.com.lasmamachas.service.PagoService;
+import pe.com.mamachas.dto.PagoDTO;
+import pe.com.mamachas.service.PagoService;
 
 @RestController
 @RequestMapping("/pago")

@@ -1,4 +1,4 @@
-package pe.com.lasmamachas.dto.base;
+package pe.com.mamachas.dto.base;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
