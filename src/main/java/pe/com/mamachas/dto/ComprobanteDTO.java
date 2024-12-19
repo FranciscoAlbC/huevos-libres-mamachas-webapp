@@ -1,4 +1,4 @@
-package pe.com.lasmamachas.dto;
+package pe.com.mamachas.dto;
 
 import java.time.LocalDate;
 import lombok.AllArgsConstructor;
@@ -6,14 +6,14 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
-import pe.com.lasmamachas.dto.base.BaseDTO;
+import pe.com.mamachas.dto.base.BaseDTO;
 
 @SuperBuilder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class ComprobanteDTO extends BaseDTO{
+public class ComprobanteDTO extends BaseDTO {
     
     private LocalDate fechaFacturacion;
     private String tipoDocu;

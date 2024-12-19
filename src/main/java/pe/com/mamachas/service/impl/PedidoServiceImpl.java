@@ -1,17 +1,17 @@
-package pe.com.lasmamachas.service.impl;
+package pe.com.mamachas.service.impl;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.com.lasmamachas.dto.PedidoDTO;
-import pe.com.lasmamachas.entity.PedidoEntity;
-import pe.com.lasmamachas.repository.PedidoRepository;
-import pe.com.lasmamachas.service.PedidoService;
+import pe.com.mamachas.dto.PedidoDTO;
+import pe.com.mamachas.entity.PedidoEntity;
+import pe.com.mamachas.repository.PedidoRepository;
+import pe.com.mamachas.service.PedidoService;
 
 @Service
-public class PedidoServiceImpl implements PedidoService{
+public class PedidoServiceImpl implements PedidoService {
 
     @Autowired
     private PedidoRepository repositorio;

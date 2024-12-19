@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Actualizar Pedido Producto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <!-- inicio de la tarjeta -->
+    <div class="card">
+        <div class="card-header text-center">
+            <h1>Actualizacion Pedido Producto</h1>
+        </div>
+        <div class="card-body">
+            <!-- inicio formulario -->
+            <form th:action="@{/pedidoproducto/actualizar/{id}(id=${pedidoproducto.codigo})}" method="post" th:object="${pedidoproducto}">
+                <div class="col-5">
+                    <label for="txtCodp" class="form-label">Codigo:</label>
+                    <input type="text" class="form-control" id="txtCodp" name="txtCod" readonly th:field="*{codigo}" th:value="${pedidoproducto.codigo}">
+                </div>
+                <form th:action="@{/pedidoproducto/registrar}" method="post" th:object="${pedidoproducto}">
+                    <div class="card-body">
+                        <div class="col-md-4">
+                                                    <label for="cboPedido" class="form-label" th:field="*{pedido}">Cod Pedido:</label>
+                                                    <select id="cboPedido" name="pedidoCodigo" class="form-select" required>
+                                                        <option value="0">Seleccione un Cod Pedido</option>
+                                                        <option
+                                                            th:each="b : ${pedidos}"
+                                                            th:value="${b.codigo}"
+                                                            th:text="${b.codigo}"
+                                                        ></option>
+
+                                                    </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="cboProducto" class="form-label" th:field="*{producto}">Producto:</label>
+                        <select id="cboProducto" name="productoId" class="form-select" required>
+                            <option value="0">Seleccione un Producto</option>
+                            <option
+                                    th:each="y : ${productos}"
+                                    th:value="${y.codigo}"
+                                    th:text="${y.tipoHuevo}"
+                            ></option>
+                        </select>
+                    </div>
+                <div class="col-5">
+                    <label for="txtNom" class="form-label">Cantidad:</label>
+                    <input type="text" class="form-control" id="txtNom" name="txtNom" required th:field="*{cantidad}" th:value="${pedidoproducto.cantidad}">
+                </div>
+                <div class="col-5">
+                    <label for="chkEst" class="form-label">Estado:</label>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="chkEst" name="chkEst" th:field="*{estado}">
+                        <label class="form-check-label" for="chkEst">Habilitado</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success" id="btnActualizar" name="btnActualizar">Actualizar</button>
+            </form>
+            <!-- fin formulario -->
+        </div>
+        <div class="card-footer">
+            <a th:href="@{/menuprincipal}" class="btn btn-secondary">Regresar al Menu Principal</a>
+        </div>
+    </div>
+    <!-- fin de la tarjeta -->
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

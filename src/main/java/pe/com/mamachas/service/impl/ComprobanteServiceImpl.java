@@ -1,4 +1,4 @@
-package pe.com.lasmamachas.service.impl;
+package pe.com.mamachas.service.impl;
 
 
 import java.util.List;
@@ -6,10 +6,10 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.com.lasmamachas.dto.ComprobanteDTO;
-import pe.com.lasmamachas.entity.ComprobanteEntity;
-import pe.com.lasmamachas.repository.ComprobanteRepository;
-import pe.com.lasmamachas.service.ComprobanteService;
+import pe.com.mamachas.dto.ComprobanteDTO;
+import pe.com.mamachas.entity.ComprobanteEntity;
+import pe.com.mamachas.repository.ComprobanteRepository;
+import pe.com.mamachas.service.ComprobanteService;
 
 @Service
 public class ComprobanteServiceImpl implements ComprobanteService {

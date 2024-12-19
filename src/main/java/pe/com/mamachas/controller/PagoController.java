@@ -1,4 +1,4 @@
-package pe.com.lasmamachas.controller;
+package pe.com.mamachas.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.stereotype.Controller;
-import pe.com.lasmamachas.dto.ComprobanteDTO;
-import pe.com.lasmamachas.dto.PagoDTO;
-import pe.com.lasmamachas.service.ComprobanteService;
-import pe.com.lasmamachas.service.PagoService;
+import pe.com.mamachas.dto.ComprobanteDTO;
+import pe.com.mamachas.dto.PagoDTO;
+import pe.com.mamachas.service.ComprobanteService;
+import pe.com.mamachas.service.PagoService;
 
 @Controller
 public class PagoController {

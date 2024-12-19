@@ -1,11 +1,11 @@
-package pe.com.lasmamachas.repository;
+package pe.com.mamachas.repository;
 
 import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import pe.com.lasmamachas.entity.EmpleadoEntity;
-import pe.com.lasmamachas.repository.generic.GenericoRepository;
+import pe.com.mamachas.entity.EmpleadoEntity;
+import pe.com.mamachas.repository.generic.GenericoRepository;
 
 @Repository
 public interface EmpleadoRepository extends GenericoRepository<EmpleadoEntity, Long> {

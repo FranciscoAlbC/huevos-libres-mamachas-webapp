@@ -1,4 +1,4 @@
-package pe.com.lasmamachas.service.generic;
+package pe.com.mamachas.service.generic;
 
 import java.util.List;
 

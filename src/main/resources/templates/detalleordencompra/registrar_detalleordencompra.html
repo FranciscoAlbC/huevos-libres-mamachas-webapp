@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registrar Detalle Orden de Compra</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container">
+    <!-- inicio de la tarjeta -->
+    <div class="card">
+        <div class="card-header text-center">
+            <h1>Registro Detalle Orden Compra</h1>
+        </div>
+        <div class="card-body">
+            <!-- inicio de formulario -->
+            <form class="row g-3"
+                  th:action="@{/detalleordencompra/registrar}"
+                  method="post"
+                  th:object="${detalleordencompra}">
+                <!-- inicio 1ra fila -->
+                <div class="col-md-4">
+                    <label for="cant" class="form-label">Cantidad:</label>
+                    <input type="number" class="form-control" id="cant" name="cant" required th:field="*{cantidad}">
+                </div>
+                <div class="col-md-4">
+                    <label for="punit" class="form-label">Precio Unitario:</label>
+                    <input type="number" class="form-control" id="punit" name="punit" required th:field="*{precioUnitario}">
+                </div>
+                <div class="col-md-4">
+                    <label for="ptot" class="form-label">Precio Total:</label>
+                    <input type="number" class="form-control" id="ptot" name="ptot" required th:field="*{precioTotal}">
+                </div>
+                <div class="col-md-4">
+                    <label for="cboOC" class="form-label">Orden de Compra:</label>
+                    <select id="cboOC" name="cboOC" class="form-select" required th:field="*{ordenCompra.codigo}">
+                        <option value="0">Seleccione una Orden de Compra</option>
+                        <option
+                                th:each="oc : ${ordencompras}"
+                                th:value="${oc.codigo}"
+                                th:text="${oc.codigo}"
+                        ></option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="chkEst" class="form-label">Estado:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="chkEst" name="chkEst" th:field="*{estado}">
+                        <label class="form-check-label" for="chkEst">
+                            Habilitado
+                        </label>
+                    </div>
+                </div>
+
+                <!-- fin 5ta fila -->
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary" id="btnRegistrar"
+                            name="btnRegistrar">Registrar</button>
+                </div>
+            </form>
+            <!-- fin de formulario -->
+        </div>
+        <div class="card-footer">
+            <a th:href="@{/menuprincipal}" class="btn btn-secondary">Regresar al Menu Principal</a>
+        </div>
+    </div>
+    <!-- fin de la tarjeta -->
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

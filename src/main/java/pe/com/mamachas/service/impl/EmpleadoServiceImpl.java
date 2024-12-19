@@ -1,14 +1,14 @@
-package pe.com.lasmamachas.service.impl;
+package pe.com.mamachas.service.impl;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.com.lasmamachas.dto.EmpleadoDTO;
-import pe.com.lasmamachas.entity.EmpleadoEntity;
-import pe.com.lasmamachas.repository.EmpleadoRepository;
-import pe.com.lasmamachas.service.EmpleadoService;
+import pe.com.mamachas.dto.EmpleadoDTO;
+import pe.com.mamachas.entity.EmpleadoEntity;
+import pe.com.mamachas.repository.EmpleadoRepository;
+import pe.com.mamachas.service.EmpleadoService;
 
 
 @Service
