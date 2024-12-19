@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registrar Cliente</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <!-- inicio de la tarjeta -->
+    <div class="card">
+        <div class="card-header text-center">
+            <h1>Registro Cliente</h1>
+        </div>
+        <div class="card-body">
+           <!-- inicio formulario -->
+           <form th:action="@{/cliente/registrar}" method="post" th:object="${cliente}">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="txtNom" class="form-label">Nombre:</label>
+                    <input type="text" class="form-control" id="txtNom" name="txtNom" required th:field="*{nomCliente}">
+                </div>
+                <div class="col-md-6">
+                    <label for="txtApePat" class="form-label">Apellido Paterno:</label>
+                    <input type="text" class="form-control" id="txtApePat" name="txtApePat" required th:field="*{apePaterno}">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label for="txtApeMat" class="form-label">Apellido Materno:</label>
+                    <input type="text" class="form-control" id="txtApeMat" name="txtApeMat" required th:field="*{apeMaterno}">
+                </div>
+                <div class="col-md-6">
+                    <label for="txtTipoDoc" class="form-label">Tipo de Documento:</label>
+                    <input type="text" class="form-control" id="txtTipoDoc" name="txtTipoDoc" required th:field="*{tipoDoc}">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label for="txtNroDoc" class="form-label">Número de Documento:</label>
+                    <input type="text" class="form-control" id="txtNroDoc" name="txtNroDoc" required th:field="*{nroDoc}">
+                </div>
+                <div class="col-md-6">
+                    <label for="txtDireccion" class="form-label">Dirección:</label>
+                    <input type="text" class="form-control" id="txtDireccion" name="txtDireccion" th:field="*{direccion}">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label for="txtTelefono" class="form-label">Teléfono:</label>
+                    <input type="text" class="form-control" id="txtTelefono" name="txtTelefono" th:field="*{telefono}">
+                </div>
+                <div class="col-md-6">
+                    <label for="txtCorreo" class="form-label">Correo:</label>
+                    <input type="email" class="form-control" id="txtCorreo" name="txtCorreo" th:field="*{correo}">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label for="chkEstado" class="form-label">Estado:</label>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="chkEstado" name="chkEstado" th:field="*{estado}">
+                        <label class="form-check-label" for="chkEstado">Habilitado</label>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Registrar</button>
+            </div>
+        </form>
+        <!-- fin formulario -->
+        </div>
+        <div class="card-footer">
+            <a th:href="@{/menuprincipal}" class="btn btn-secondary">Regresar al Menú Principal</a>
+        </div>
+    </div>
+    <!-- fin de la tarjeta -->
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
