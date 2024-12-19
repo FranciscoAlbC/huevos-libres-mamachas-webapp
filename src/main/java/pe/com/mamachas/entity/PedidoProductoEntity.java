@@ -18,18 +18,17 @@ public class PedidoProductoEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @EmbeddedId
-    private PedidoProductoId codigo;
+    @Id
+    @Column(name = "codigo")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long codigo;
 
-    //todo
 //    @ManyToOne
-//    @MapsId("IdPedido")
-//    @JoinColumn(name="idPedido", referencedColumnName = "codigo")
+//    @JoinColumn(name = "idPedido", nullable = false);
 //    private PedidoEntity pedido;
 
     @ManyToOne
-    @MapsId("IdProducto")
-    @JoinColumn(name = "idProducto", referencedColumnName = "codigo")
+    @JoinColumn(name = "idProducto", nullable = false)
     private ProductoEntity producto;
 
     @Column(name = "cantidad")
@@ -37,4 +36,5 @@ public class PedidoProductoEntity implements Serializable {
 
     @Column(name = "estado")
     private boolean estado;
+
 }

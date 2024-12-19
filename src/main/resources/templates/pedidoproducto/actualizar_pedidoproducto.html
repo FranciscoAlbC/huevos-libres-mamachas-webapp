@@ -17,13 +17,35 @@
             <!-- inicio formulario -->
             <form th:action="@{/pedidoproducto/actualizar/{id}(id=${pedidoproducto.codigo})}" method="post" th:object="${pedidoproducto}">
                 <div class="col-5">
-                    <label for="txtCodp" class="form-label">Codigo Pedido:</label>
-                    <input type="text" class="form-control" id="txtCodp" name="txtCod" readonly th:field="*{codigo.idPedido}" th:value="${pedidoproducto.codigo.idPedido}">
+                    <label for="txtCodp" class="form-label">Codigo:</label>
+                    <input type="text" class="form-control" id="txtCodp" name="txtCod" readonly th:field="*{codigo}" th:value="${pedidoproducto.codigo}">
                 </div>
-                <div class="col-5">
-                    <label for="txtCod" class="form-label">Codigo Producto:</label>
-                    <input type="text" class="form-control" id="txtCod" name="txtCod" readonly th:field="*{codigo.idProducto}" th:value="${pedidoproducto.codigo.idProducto}">
-                </div>
+                <form th:action="@{/pedidoproducto/registrar}" method="post" th:object="${pedidoproducto}">
+                    <div class="card-body">
+                        <div class="col-md-4">
+                            <!--                        <label for="cboPedido" class="form-label" th:field="*{codigo.idPedido}">Cod Pedido:</label>-->
+                            <!--                        <select id="cboPedido" name="pedidoCodigo" class="form-select" required>-->
+                            <!--                            <option value="0">Seleccione un Cod Pedido</option>-->
+                            <!--                            <option-->
+                            <!--                                th:each="entry : ${productos.entrySet()}"-->
+                            <!--                                th:value="${entry.key}"-->
+                            <!--                                th:text="${entry.value}"-->
+                            <!--                            ></option>-->
+
+                            <!--                        </select>-->
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="cboProducto" class="form-label" th:field="*{producto.codigo}">Producto:</label>
+                        <select id="cboProducto" name="productoId" class="form-select" required>
+                            <option value="0">Seleccione un Producto</option>
+                            <option
+                                    th:each="y : ${productos}"
+                                    th:value="${y.codigo}"
+                                    th:text="${y.tipoHuevo}"
+                            ></option>
+                        </select>
+                    </div>
                 <div class="col-5">
                     <label for="txtNom" class="form-label">Cantidad:</label>
                     <input type="text" class="form-control" id="txtNom" name="txtNom" required th:field="*{cantidad}" th:value="${pedidoproducto.cantidad}">

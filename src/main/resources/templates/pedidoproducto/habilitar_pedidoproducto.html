@@ -19,7 +19,8 @@
                 <table class="table table-striped table-hover table-bordered">
                     <thead class="table-dark">
                     <tr>
-                        <th scope="col">Cod Pedido</th>
+                        <th scope="col">Codigo</th>
+                        <th scope="col">Pedido</th>
                         <th scope="col">Producto</th>
                         <th scope="col">Cantidad</th>
                         <th scope="col">Estado</th>
@@ -29,10 +30,11 @@
                     </thead>
                     <tbody>
 
-                    <tr th:each=" p : ${pedidoproductos}">
+                    <tr th:each="p : ${pedidoproductos}">
+                        <th scope="row" th:text="${p.codigo}"></th>
                         <td></td>
-                        <!--                        <th scope="row" th:text="${p.codigo.idProducto}"></th>-->
-                        <th scope="row" th:text="${productos[p.codigo.idProducto]}"></th>
+                        <!--<td th:text="${p.pedido.codigo}"></td>-->
+                        <td th:text="${p.producto.tipoHuevo}"></td>
                         <td th:text="${p.cantidad}"></td>
                         <td th:text="${p.estado}? 'Habilitado':'Deshabilitado'"></td>
                         <td><a th:href="@{/pedidoproducto/habilitar/{id}(id=${p.codigo})}" class="btn btn-success">Seleccionar</a></td>

@@ -3,12 +3,11 @@ package pe.com.mamachas.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import pe.com.mamachas.entity.PedidoProductoEntity;
-import pe.com.mamachas.entity.PedidoProductoId;
 
 import java.util.List;
 
-public interface PedidoProductoRepository extends JpaRepository<PedidoProductoEntity, PedidoProductoId> {
+public interface PedidoProductoRepository extends JpaRepository<PedidoProductoEntity, Long> {
 
-    @Query("select pp from PedidoProductoEntity pp where pp.estado = true")
+    @Query("select p from PedidoProductoEntity p where p.estado = true")
     List<PedidoProductoEntity> findAllCustom();
 }

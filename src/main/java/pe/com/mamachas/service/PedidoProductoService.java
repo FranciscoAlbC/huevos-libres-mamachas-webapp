@@ -1,23 +1,16 @@
 package pe.com.mamachas.service;
 
-import pe.com.mamachas.dto.InsumoDTO;
-import pe.com.mamachas.dto.PedidoProductoDTO;
-import pe.com.mamachas.dto.PedidoProductoIdDTO;
 import pe.com.mamachas.entity.PedidoProductoEntity;
 
 import java.util.List;
 
 public interface PedidoProductoService {
 
-    List<PedidoProductoDTO> findAll();
-    List<PedidoProductoDTO> findAllCustom();
-    PedidoProductoDTO findById(PedidoProductoIdDTO id);
-    PedidoProductoDTO add(PedidoProductoDTO pp);
-
-
-    PedidoProductoEntity update(PedidoProductoEntity pp);
-//    PedidoProductoDTO update(PedidoProductoDTO pp, PedidoProductoIdDTO id);
-
-    PedidoProductoDTO delete(PedidoProductoIdDTO id);
-    PedidoProductoDTO enable(PedidoProductoIdDTO id);
+    public List<PedidoProductoEntity> findAll();
+    public List<PedidoProductoEntity> findAllCustom();
+    public PedidoProductoEntity findById(long id);
+    public PedidoProductoEntity add(PedidoProductoEntity p);
+    public PedidoProductoEntity update(PedidoProductoEntity p);
+    public PedidoProductoEntity delete(PedidoProductoEntity p);
+    public PedidoProductoEntity enable(PedidoProductoEntity p);
 }
